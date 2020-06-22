@@ -43,3 +43,6 @@ const restart = document.getElementById('restart');
 restart.onclick = function () {
    alert('reinício');
 }
+
+
+// teste merge edu
