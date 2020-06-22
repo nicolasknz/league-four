@@ -1,4 +1,26 @@
-/*tabuleiro dividido em colunas*/
+body,
+body * {
+   display: flex;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   flex-flow: column nowrap;
+}
+
+header {
+   flex: 1 0 120px;
+   width: 100%;
+}
+
+
+main {
+   flex-flow: row nowrap;
+   flex: 8 0 600px;
+}
+
 .column {}
 
 .cell {}
@@ -17,4 +39,36 @@
    display: none;
 }
 
-/*teste merge Edu */
+
+/* css temporário apenas para visualização e testes */
+
+.column {
+   background: gray;
+   padding: 4px;
+   margin: 4px;
+   flex-flow: column-reverse nowrap;
+   flex: 0 0 60px;
+   height: fit-content;
+}
+
+.cell {
+   background: yellow;
+   flex: 0 0 52px;
+   width: 52px;
+   padding: 4px;
+   border-radius: 50%;
+}
+
+.chip {
+}
+
+.blue {
+   background: blue;
+   border: yellow 2px solid;
+}
+
+.red {
+   background: red;
+   border: yellow 2px solid;
+}
+>>>>>>> ataua

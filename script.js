@@ -106,14 +106,50 @@ function endGame() {
 //seta mensagem
 // altera display
 // }
+function final(result) {
+   // define variáveis
+   let finalMsg = '';
+   let msgColor = '';
+   switch (result) {
+      // de acordo com o resultado recebido de endGame(), seta mensagem e cor do texto
+      case 'player1':
+         finalMsg = 'Player 1 é o vencedor!!';
+         msgColor = 'blue';
+         break;
+      case 'player2':
+         finalMsg = 'Player 2 é o vencedor!!';
+         msgColor = 'red';
+         break;
+      default:
+         finalMsg = 'Ninguém venceu - empate!!';
+         msgColor = 'green';
+         break;
+   }
+   // cria os elementos da página que irão apresentar o resultado do jogo
+   let target = document.getElementById('fimDeJogo');
+   let resultado = document.createElement('div');
+   resultado.style.color = msgColor;
+   let p = document.createElement('p');
+   let txt = document.createTextNode(finalMsg);
+   p.appendChild(txt);
+   resultado.appendChild(p);
+   target.appendChild(resultado);
+   // altera o display para tornar o resultado visível
+   target.style.display = 'inline-block';
+}
+
 // botão reiniciar
 // limpa tabuleiro = limpar os arrays e atualiza
 // -- Atauã
 
 const restart = document.getElementById('restart');
 restart.onclick = function () {
-   alert('reinício');
-}
 
+   let cells = document.getElementsByClassName('cell');
+   for (cell of cells) {
+      cell.classList.remove('chip', 'blue', 'red');
+   }
+   // limpar arrays
+   table();
+};
 
-// teste merge edu
