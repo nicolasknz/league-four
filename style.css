@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/*tabuleiro dividido em colunas*/
-.column {
-   
-}
-
-.cell {
-  
-}
-=======
 body,
 body * {
    display: flex;
@@ -15,64 +5,41 @@ body * {
    margin: 0;
    padding: 0;
 }
-
+​
 body {
    flex-flow: column nowrap;
+   min-width: 870px;
 }
-
+​
 header {
    flex: 1 0 120px;
    width: 100%;
    justify-content: center;
    align-items: center;
 }
-
+​
 button {
    padding: 12px;
 }
-
+​
 header > * {
    margin: 20px;
 }
-
+​
 main {
+   background: pink;
+   outline: 4px outset #eaafbb;
    flex-flow: row nowrap;
    flex: 8 0 600px;
    margin: auto;
+   position: relative;
 }
-
-.column {}
->>>>>>> 0a0ef362abf120aab9cb56c8819c43b5fe3a7484
-
-.main{
-   display: flex; /* esse cara vai se tornar um container */
-   flex-direction: row; /* row:linha  / column: coluna /  -reverse ele reverte */
-   justify-content: center; /* center: centraliza / flex-start / flex-end/ space-between: deixa
-   um espaço entre eles*/
-   align-items: center; /* flex-start / flex-end / center / stretch / baseline(conteudo do item) 
-   é responsavel pra alinhar os itens verticamente  */
-   align-content: center; /* esse cara alinha quando os itens nao tem mais espaço, 
-   ex quando vc diminui a pag */
-}
-
-
-.celulas{
-   flex-grow: 1; /* ocupa o resto da largura da div*/
-   flex-shrink: 0; /*encolhe a nossa div*/
-   flex-basis: auto; /*define um width de cada elem caso nao tenha*/
-
-   background: rgb(255, 152, 152);
+​
+.blocos{
+   background: rgb(173, 173, 173);
    border: 0.5px solid black;
-   width: 50px;
-   height: 50px;
 }
-
-.chip {}
-
-.blue {}
-
-.red {}
-
+​
 #fimDeJogo {
    position: absolute;
    top: 0;
@@ -82,14 +49,12 @@ main {
    background: gray;
    padding: 25%;
 }
-
+​
 #innersection {
    margin: auto;
 }
-
-
-/* css temporário apenas para visualização e testes */
-/* 
+​
+​
 .column {
    background: gray;
    padding: 4px;
@@ -98,11 +63,11 @@ main {
    flex: 0 0 60px;
    height: fit-content;
 }
-
+​
 .column:hover {
    background: #aca;
 }
-
+​
 .cell {
    background: yellow;
    flex: 0 0 100px;
@@ -110,24 +75,27 @@ main {
    padding: 4px;
    border-radius: 50%;
    margin: 4px;
+   box-shadow: 6px 6px 4px 2px #993e inset
 }
-
+​
 .chip {
+   flex: 1 0 100px;
+   width: 100px;
+   border-radius: 50%;
 }
-
-.blue {
+​
+.black {
    background: blue;
    border: yellow 2px solid;
+   box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
 }
-
+​
 .red {
    background: red;
+   box-shadow: 0 0 4px 6px #faa3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
    border: yellow 2px solid;
 }
-<<<<<<< HEAD
->>>>>>> ataua */
-=======
-
+​
 #fimDeJogo {
    position: absolute;
    top: 0;
@@ -137,9 +105,7 @@ main {
    background: gray;
    padding: 25%;
 }
-
+​
 #innersection {
    margin: auto;
 }
-
->>>>>>> 0a0ef362abf120aab9cb56c8819c43b5fe3a7484
