@@ -7,31 +7,19 @@ const red = 'red' //2
 
 let player = black
 
-const coluna = document.getElementsByClassName('column'); // variavel pegando as 7 colunas
-//const divCell = document.getElementsByClassName('cell'); // variavel pegando todas as celulas
+<<<<<<< script.js
+function table() {
+   for (let i = 1; i <= 7; i++) {
 
-// function table() {
-//       for (let i = 0; i <coluna.length; i++) {
-//       let arrayColuna = Array();
+      let main = document.getElementById('main')
+      const divColuna = document.createElement("div");
+      divColuna.className = "column"
+      divColuna.id = i
 
-//       for (let y = 0; y <7; y++) {
-//          arrayColuna.push(y)
-
-//          let divCell = document.createElement('div');
-//          divCell.className = "blocos";
-//          arrayColuna.appendChild(divCell)
-//          // divCell.style.backgroundColor = "gray"
-
-
-//          //console.log(coluna)
-         
-//       }
-//    }
-// }
-// table()
-
-// criar fichas pretas e vermelhas
-// function createChip() {
+      main.appendChild(divColuna)
+   }
+}
+table()
 
 // Retorna ficha vermelha se receber 'red' ou preta se receber 'black 
 function createChip(nextPlayer) {
@@ -246,3 +234,4 @@ restart.onclick = function () {
    // reinicia jogo do zero
    table();
 }
+

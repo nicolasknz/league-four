@@ -5,27 +5,27 @@ body * {
    margin: 0;
    padding: 0;
 }
-
+​
 body {
    flex-flow: column nowrap;
    min-width: 870px;
 }
-
+​
 header {
    flex: 1 0 120px;
    width: 100%;
    justify-content: center;
    align-items: center;
 }
-
+​
 button {
    padding: 12px;
 }
-
+​
 header > * {
    margin: 20px;
 }
-
+​
 main {
    background: pink;
    outline: 4px outset #eaafbb;
@@ -34,20 +34,12 @@ main {
    margin: auto;
    position: relative;
 }
-
-.column {}
-
+​
 .blocos{
    background: rgb(173, 173, 173);
    border: 0.5px solid black;
 }
-
-.chip {}
-
-.blue {}
-
-.red {}
-
+​
 #fimDeJogo {
    position: absolute;
    top: 0;
@@ -57,14 +49,12 @@ main {
    background: gray;
    padding: 25%;
 }
-
+​
 #innersection {
    margin: auto;
 }
-
-
-/* css temporário apenas para visualização e testes */
-
+​
+​
 .column {
    box-sizing: border-box;
    background: gray;
@@ -76,11 +66,11 @@ main {
    width: 150px;
    height: 650px;
 }
-
+​
 .column:hover {
    background: #aca;
 }
-
+​
 .cell {
    background: yellow;
    flex: 0 0 100px;
@@ -101,21 +91,23 @@ main {
 }
 
 .chip {
-
+   flex: 1 0 100px;
+   width: 100px;
+   border-radius: 50%;
 }
-
-.blue {
+​
+.black {
    background: blue;
    border: yellow 2px solid;
    box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
 }
-
+​
 .red {
    background: red;
    box-shadow: 0 0 4px 6px #faa3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
    border: yellow 2px solid;
 }
-
+​
 #fimDeJogo {
    position: absolute;
    top: 0;
@@ -125,8 +117,7 @@ main {
    background: gray;
    padding: 25%;
 }
-
+​
 #innersection {
    margin: auto;
 }
-
