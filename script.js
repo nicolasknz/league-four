@@ -2,10 +2,18 @@
 // cada coluna é um array vazio
 // início automático
 // -- Eduardo
-const black = 'black' //1
-const red = 'red' //2
+// const black = 'black' //1
+// const red = 'red' //2
 
-let player = black
+let player = 'black'
+
+function switchPlayer(){
+   if (player === 'black'){
+         player = 'red'
+   } else if (player === 'red'){
+         player = 'black'
+   }
+}
 
 <<<<<<< script.js
 function table() {
@@ -59,6 +67,7 @@ main.addEventListener('click', function(e){
 
      if (hover == true){
       coluna1.appendChild(createChip(player))
+      switchPlayer()
   }
 }
   if (e.target.id === '2') {
@@ -69,6 +78,7 @@ main.addEventListener('click', function(e){
    }
    if (hover == true){
       coluna2.appendChild(createChip(player))
+      switchPlayer()
    }
 }
 if (e.target.id === '3') {
@@ -79,6 +89,7 @@ if (e.target.id === '3') {
    }
    if (hover == true){
       coluna3.appendChild(createChip(player))
+      switchPlayer()
    }
 }
 if (e.target.id === '4') {
@@ -89,6 +100,7 @@ if (e.target.id === '4') {
    }
    if (hover == true){
       coluna4.appendChild(createChip(player))
+      switchPlayer()
    }
 }
 if (e.target.id === '5') {
@@ -99,6 +111,7 @@ if (e.target.id === '5') {
    }
    if (hover == true){
       coluna5.appendChild(createChip(player))
+      switchPlayer()
    }
 }
 if (e.target.id === '6') {
@@ -109,6 +122,7 @@ if (e.target.id === '6') {
    }
    if (hover == true){
       coluna6.appendChild(createChip(player))
+      switchPlayer()
    }
 }
 if (e.target.id === '7') {
@@ -119,6 +133,7 @@ if (e.target.id === '7') {
    }
    if (hover == true){
       coluna7.appendChild(createChip(player))
+      switchPlayer()
    }
 }
 })
