@@ -15,11 +15,51 @@ function createChip() {
 // -- Nicolas
 
 // criar player 1 e player 2
-function switchPlayer() {
+const player1 = 'black' //1
+const player2 = 'red' //2
+let alternar = player1
 
+let placar = [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+]
+
+const jogada = document.getElementsByClassName('column')
+
+for(coluna of jogada){
+   coluna.addEventListener('hover', function('Event'){
+      //Inserir ficha na coluna
+      if (coluna.lenght <= 6){
+         "Variável da célula".appendChild("Variável da ficha")
+         
+      if (alternar == player1){
+         //Registrar no array Placar 1 p/ Black
+      } else if (alternar == player2){
+         //Registrar no array Placar 1 p/ Red
+      }
+         switchPlayer()
+      }
+      
+   })
+}
+
+function switchPlayer() {
+   //Alteração de CSS p/ identificação visual.
+   if (alternar == player1){      
+         "Variável da ficha".style.background-color = player2
+   } else if (alternar == player2){
+         "Variável da ficha".style.background-color = player1
+   }
+   
 }
 // rodada: selecionar coluna > insere uma ficha > altera jogador [1,0,1,1...]
 // -- Gustavo
+
 
 // condição de vitória: 4 em linha (h, v, d para cima, d para baixo)
 function endGame() {
