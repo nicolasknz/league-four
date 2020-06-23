@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*tabuleiro dividido em colunas*/
 .column {
    
@@ -6,6 +7,42 @@
 .cell {
   
 }
+=======
+body,
+body * {
+   display: flex;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   flex-flow: column nowrap;
+}
+
+header {
+   flex: 1 0 120px;
+   width: 100%;
+   justify-content: center;
+   align-items: center;
+}
+
+button {
+   padding: 12px;
+}
+
+header > * {
+   margin: 20px;
+}
+
+main {
+   flex-flow: row nowrap;
+   flex: 8 0 600px;
+   margin: auto;
+}
+
+.column {}
+>>>>>>> 0a0ef362abf120aab9cb56c8819c43b5fe3a7484
 
 .main{
    display: flex; /* esse cara vai se tornar um container */
@@ -87,4 +124,22 @@
    background: red;
    border: yellow 2px solid;
 }
+<<<<<<< HEAD
 >>>>>>> ataua */
+=======
+
+#fimDeJogo {
+   position: absolute;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   display: none;
+   background: gray;
+   padding: 25%;
+}
+
+#innersection {
+   margin: auto;
+}
+
+>>>>>>> 0a0ef362abf120aab9cb56c8819c43b5fe3a7484
