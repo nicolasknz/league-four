@@ -1,10 +1,33 @@
 // criar tabuleiro 6 X 7
-function table() {
-
-}
 // cada coluna é um array vazio
 // início automático
 // -- Eduardo
+
+const coluna = document.getElementsByClassName('column'); // variavel pegando as 7 colunas
+//const divCell = document.getElementsByClassName('cell'); // variavel pegando todas as celulas
+
+function table() {
+      for (let i = 0; i <coluna.length; i++) {
+      let arrayColuna = Array();
+
+      for (let y = 0; y <7; y++) {
+         arrayColuna.push(y)
+
+         let divCell = document.createElement('div');
+         divCell.className = "blocos";
+         arrayColuna.appendChild(divCell)
+         // divCell.style.backgroundColor = "gray"
+
+
+         //console.log(coluna)
+         
+      }
+   }
+}
+table()
+
+// criar fichas pretas e vermelhas
+function createChip() {
 
 // Retorna ficha vermelha se receber 'red' ou preta se receber 'black 
 function createChip(nextPlayer) {
@@ -152,4 +175,3 @@ restart.onclick = function () {
    // limpar arrays
    table();
 };
-

@@ -25,7 +25,10 @@ main {
 
 .column {}
 
-.cell {}
+.blocos{
+   background: rgb(173, 173, 173);
+   border: 0.5px solid black;
+}
 
 .chip {}
 
