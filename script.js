@@ -5,15 +5,12 @@
 
 function table() {
    for (let i = 1; i <= 7; i++) {
+
       let main = document.getElementById('main')
       const divColuna = document.createElement("div");
       divColuna.className = "column"
       divColuna.id = i
-      for (let y = 1; y <= 6; y++) {
-         const divLinha = document.createElement("div");
-         divLinha.className = "cell";
-         divColuna.appendChild(divLinha);
-      }
+
       main.appendChild(divColuna)
    }
 }
