@@ -31,16 +31,16 @@ function createChip() {
 
 // Retorna ficha vermelha se receber 'red' ou preta se receber 'black 
 function createChip(nextPlayer) {
-      if(nextPlayer === 'red'){
-         console.log("red")
-         let newChip = document.createElement("div");
-         newChip.classList.add("red");
-         return newChip;
-      } else if(nextPlayer === 'black'){
-         let newChip = document.createElement("div");
-         newChip.classList.add("black"); 
-         return newChip;
-      }
+   if (nextPlayer === 'red') {
+      console.log("red")
+      let newChip = document.createElement("div");
+      newChip.classList.add("red");
+      return newChip;
+   } else if (nextPlayer === 'black') {
+      let newChip = document.createElement("div");
+      newChip.classList.add("black");
+      return newChip;
+   }
 }
 const coluna1 = document.getElementById("1");
 const coluna2 = document.getElementById("2");
@@ -51,57 +51,62 @@ const coluna6 = document.getElementById("6");
 const coluna7 = document.getElementById("7");
 
 // Retorna a quantidade de chips numa determinada coluna
-function columnChipCount (columnSelected) {
+function columnChipCount(columnSelected) {
    let chipsCount = columnSelected.getElementsByTagName('*').length - 6;
    return chipsCount;
 }
 // Verifica  a coluna em que o mouse esta em 'hover', se ainda ouver espaço ira alterar a variavel hover para true, se não houver, altera para false
 let hover;
-main.addEventListener('mouseover', function(e){
-  if (e.target.id === '1') {
-     if (columnChipCount(coluna1) < 6){
-        hover = true;
-     } else {
-        hover = false;
-     }
-  }
-  if (e.target.id === '2') {
-   if (columnChipCount(coluna2) < 6){
-      hover = true;
-   } else {
-      hover = false;
+main.addEventListener('mouseover', function (e) {
+   if (e.target.id === '1') {
+      if (columnChipCount(coluna1) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
    }
-}
-if (e.target.id === '3') {
-   if (columnChipCount(coluna3) < 6){
-      hover = true;
-   } else {
-      hover = false;   }
-}
-if (e.target.id === '4') {
-   if (columnChipCount(coluna4) < 6){
-      hover = true;
-   } else {
-      hover = false;   }
-}
-if (e.target.id === '5') {
-   if (columnChipCount(coluna5) < 6 ){
-      hover = true;
-   } else {
-      hover = false;   }
-}
-if (e.target.id === '6') {
-   if (columnChipCount(coluna6) < 6 ){
-      hover = true;
-   } else  {
-      hover = false;   }
-}
-if (e.target.id === '7') {
-   if (columnChipCount(coluna7) < 6 ){
-      hover = true;
-   } else {
-      hover = false;   }
-}
+   if (e.target.id === '2') {
+      if (columnChipCount(coluna2) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
+   }
+   if (e.target.id === '3') {
+      if (columnChipCount(coluna3) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
+   }
+   if (e.target.id === '4') {
+      if (columnChipCount(coluna4) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
+   }
+   if (e.target.id === '5') {
+      if (columnChipCount(coluna5) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
+   }
+   if (e.target.id === '6') {
+      if (columnChipCount(coluna6) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
+   }
+   if (e.target.id === '7') {
+      if (columnChipCount(coluna7) < 6) {
+         hover = true;
+      } else {
+         hover = false;
+      }
+   }
 })
 
 // clicar na coluna cria uma ficha (push)
@@ -165,11 +170,8 @@ function endGame() {
 
 
 // fim de jogo: div popup com mensagem
-// RECEBE endGame(){
-//seta mensagem
-// altera display
-// }
-function final(result) {
+// RECEBE endGame
+function telaFinal(result) {
    // define variáveis
    let finalMsg = '';
    let msgColor = '';
@@ -198,7 +200,7 @@ function final(result) {
    resultado.appendChild(p);
    target.appendChild(resultado);
    // altera o display para tornar o resultado visível
-   target.style.display = 'inline-block';
+   target.style.display = 'flex';
 }
 
 // botão reiniciar
@@ -213,5 +215,6 @@ restart.onclick = function () {
       cell.classList.remove('chip', 'blue', 'red');
    }
    // limpar arrays
+   // reinicia jogo do zero
    table();
 };
