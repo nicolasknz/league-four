@@ -82,7 +82,16 @@ main {
 }
 
 .black {
-   background: yellow;
+   background: black;
+   flex: 0 0 100px;
+   width: 100px;
+   padding: 4px;
+   border-radius: 50%;
+   margin: 4px;
+}
+
+.red {
+   background: red;
    flex: 0 0 100px;
    width: 100px;
    padding: 4px;
@@ -95,9 +104,9 @@ main {
    width: 100px;
    border-radius: 50%;
 }
-​
+
 .black {
-   background: blue;
+   background: black;
    border: yellow 2px solid;
    box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
 }
