@@ -2,32 +2,36 @@
 // cada coluna é um array vazio
 // início automático
 // -- Eduardo
+const black = 'black' //1
+const red = 'red' //2
+
+let player = black
 
 const coluna = document.getElementsByClassName('column'); // variavel pegando as 7 colunas
 //const divCell = document.getElementsByClassName('cell'); // variavel pegando todas as celulas
 
-function table() {
-      for (let i = 0; i <coluna.length; i++) {
-      let arrayColuna = Array();
+// function table() {
+//       for (let i = 0; i <coluna.length; i++) {
+//       let arrayColuna = Array();
 
-      for (let y = 0; y <7; y++) {
-         arrayColuna.push(y)
+//       for (let y = 0; y <7; y++) {
+//          arrayColuna.push(y)
 
-         let divCell = document.createElement('div');
-         divCell.className = "blocos";
-         arrayColuna.appendChild(divCell)
-         // divCell.style.backgroundColor = "gray"
+//          let divCell = document.createElement('div');
+//          divCell.className = "blocos";
+//          arrayColuna.appendChild(divCell)
+//          // divCell.style.backgroundColor = "gray"
 
 
-         //console.log(coluna)
+//          //console.log(coluna)
          
-      }
-   }
-}
-table()
+//       }
+//    }
+// }
+// table()
 
 // criar fichas pretas e vermelhas
-function createChip() {
+// function createChip() {
 
 // Retorna ficha vermelha se receber 'red' ou preta se receber 'black 
 function createChip(nextPlayer) {
@@ -51,72 +55,102 @@ const coluna6 = document.getElementById("6");
 const coluna7 = document.getElementById("7");
 
 // Retorna a quantidade de chips numa determinada coluna
-function columnChipCount(columnSelected) {
-   let chipsCount = columnSelected.getElementsByTagName('*').length - 6;
+function columnChipCount (columnSelected) {
+   let chipsCount = columnSelected.getElementsByTagName('*').length;
    return chipsCount;
 }
 // Verifica  a coluna em que o mouse esta em 'hover', se ainda ouver espaço ira alterar a variavel hover para true, se não houver, altera para false
 let hover;
-main.addEventListener('mouseover', function (e) {
-   if (e.target.id === '1') {
-      if (columnChipCount(coluna1) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+main.addEventListener('click', function(e){
+  if (e.target.id === '1') {
+     if (columnChipCount(coluna1) < 6){
+        hover = true;
+     } else {
+        hover = false;
+     }
+
+     if (hover == true){
+      coluna1.appendChild(createChip(player))
+  }
+}
+  if (e.target.id === '2') {
+   if (columnChipCount(coluna2) < 6){
+      hover = true;
+   } else {
+      hover = false;
    }
-   if (e.target.id === '2') {
-      if (columnChipCount(coluna2) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+   if (hover == true){
+      coluna2.appendChild(createChip(player))
    }
-   if (e.target.id === '3') {
-      if (columnChipCount(coluna3) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+}
+if (e.target.id === '3') {
+   if (columnChipCount(coluna3) < 6){
+      hover = true;
+   } else {
+      hover = false;   
    }
-   if (e.target.id === '4') {
-      if (columnChipCount(coluna4) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+   if (hover == true){
+      coluna3.appendChild(createChip(player))
    }
-   if (e.target.id === '5') {
-      if (columnChipCount(coluna5) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+}
+if (e.target.id === '4') {
+   if (columnChipCount(coluna4) < 6){
+      hover = true;
+   } else {
+      hover = false;   
    }
-   if (e.target.id === '6') {
-      if (columnChipCount(coluna6) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+   if (hover == true){
+      coluna4.appendChild(createChip(player))
    }
-   if (e.target.id === '7') {
-      if (columnChipCount(coluna7) < 6) {
-         hover = true;
-      } else {
-         hover = false;
-      }
+}
+if (e.target.id === '5') {
+   if (columnChipCount(coluna5) < 6 ){
+      hover = true;
+   } else {
+      hover = false;   
    }
+   if (hover == true){
+      coluna5.appendChild(createChip(player))
+   }
+}
+if (e.target.id === '6') {
+   if (columnChipCount(coluna6) < 6 ){
+      hover = true;
+   } else  {
+      hover = false;   
+   }
+   if (hover == true){
+      coluna6.appendChild(createChip(player))
+   }
+}
+if (e.target.id === '7') {
+   if (columnChipCount(coluna7) < 6 ){
+      hover = true;
+   } else {
+      hover = false;   
+   }
+   if (hover == true){
+      coluna7.appendChild(createChip(player))
+   }
+}
 })
 
+//Evento de click para adicionar ficha ao jogo.
+// coluna1.addEventListener('click', function(){
+//    if (hover == true){
+//    coluna1.appendChild(createChip(player))
+//    console.log('ok')
+//    }
+// })
 // clicar na coluna cria uma ficha (push)
 // hover na coluna - verifica se tem espaço disponível {roda }
 // -- Nicolas
 
 // criar player 1 e player 2
-const player1 = 'black' //1
-const player2 = 'red' //2
-let alternar = player1
+// const black = 'black' //1
+// const red = 'red' //2
+
+// let player = black
 
 let placar = [
    [],
@@ -128,35 +162,29 @@ let placar = [
    []
 ]
 
-const jogada = document.getElementsByClassName('column')
 
-for(coluna of jogada){
-   coluna.addEventListener('hover', function('Event'){
-      //Inserir ficha na coluna
-      if (coluna.lenght <= 6){
-         "Variável da célula".appendChild("Variável da ficha")
+
+// rodada: selecionar coluna > insere uma ficha > altera jogador e grava array [1,0,1,1...]
+
+// const jogada = document.getElementsByClassName('column')
+// for(coluna of jogada){
+//    coluna.addEventListener('hover', function('Event'){
+//       //Inserir ficha na coluna
+//       if (coluna.lenght <= 6){
+//          createChip(alternar).appendChild("Variável da ficha")
          
-      if (alternar == player1){
-         //Registrar no array Placar 1 p/ Black
-      } else if (alternar == player2){
-         //Registrar no array Placar 1 p/ Red
-      }
-         switchPlayer()
-      }
+//       if (alternar == player1){
+//          //Registrar no array Placar 1 p/ Black
+//       } else if (alternar == player2){
+//          //Registrar no array Placar 1 p/ Red
+//       }
+//          switchPlayer()
+//       }
       
-   })
-}
+//    })
+// }
 
-function switchPlayer() {
-   //Alteração de CSS p/ identificação visual.
-   if (alternar == player1){      
-         "Variável da ficha".style.background-color = player2
-   } else if (alternar == player2){
-         "Variável da ficha".style.background-color = player1
-   }
-   
-}
-// rodada: selecionar coluna > insere uma ficha > altera jogador [1,0,1,1...]
+
 // -- Gustavo
 
 
@@ -217,4 +245,4 @@ restart.onclick = function () {
    // limpar arrays
    // reinicia jogo do zero
    table();
-};
+}
