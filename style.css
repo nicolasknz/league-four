@@ -35,18 +35,10 @@ main {
    position: relative;
 }
 
-.column {}
-
 .blocos{
    background: rgb(173, 173, 173);
    border: 0.5px solid black;
 }
-
-.chip {}
-
-.blue {}
-
-.red {}
 
 #fimDeJogo {
    position: absolute;
@@ -62,8 +54,6 @@ main {
    margin: auto;
 }
 
-
-/* css temporário apenas para visualização e testes */
 
 .column {
    background: gray;
@@ -89,11 +79,14 @@ main {
 }
 
 .chip {
+   flex: 1 0 100px;
+   width: 100px;
+   border-radius: 50%;
 
 }
 
-.blue {
-   background: blue;
+.black {
+   background: #211;
    border: yellow 2px solid;
    box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
 }
@@ -117,4 +110,3 @@ main {
 #innersection {
    margin: auto;
 }
-
