@@ -35,16 +35,16 @@ const coluna = document.getElementsByClassName('column'); // variavel pegando as
 
 // Retorna ficha vermelha se receber 'red' ou preta se receber 'black 
 function createChip(nextPlayer) {
-      if(nextPlayer === 'red'){
-         console.log("red")
-         let newChip = document.createElement("div");
-         newChip.classList.add("red");
-         return newChip;
-      } else if(nextPlayer === 'black'){
-         let newChip = document.createElement("div");
-         newChip.classList.add("black"); 
-         return newChip;
-      }
+   if (nextPlayer === 'red') {
+      console.log("red")
+      let newChip = document.createElement("div");
+      newChip.classList.add("red");
+      return newChip;
+   } else if (nextPlayer === 'black') {
+      let newChip = document.createElement("div");
+      newChip.classList.add("black");
+      return newChip;
+   }
 }
 const coluna1 = document.getElementById("1");
 const coluna2 = document.getElementById("2");
@@ -198,11 +198,8 @@ function endGame() {
 
 
 // fim de jogo: div popup com mensagem
-// RECEBE endGame(){
-//seta mensagem
-// altera display
-// }
-function final(result) {
+// RECEBE endGame
+function telaFinal(result) {
    // define variáveis
    let finalMsg = '';
    let msgColor = '';
@@ -231,7 +228,7 @@ function final(result) {
    resultado.appendChild(p);
    target.appendChild(resultado);
    // altera o display para tornar o resultado visível
-   target.style.display = 'inline-block';
+   target.style.display = 'flex';
 }
 
 // botão reiniciar
@@ -246,5 +243,6 @@ restart.onclick = function () {
       cell.classList.remove('chip', 'blue', 'red');
    }
    // limpar arrays
+   // reinicia jogo do zero
    table();
 }
