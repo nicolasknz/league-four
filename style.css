@@ -5,6 +5,10 @@ body * {
    padding: 0;
 }
 
+title {
+   display: none;
+}
+
 body {
    flex-flow: column nowrap;
    min-width: 870px;
