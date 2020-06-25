@@ -9,6 +9,17 @@ title {
    display: none;
 }
 
+html {
+   background: #71c8e0;
+   background: -moz-linear-gradient(top, #71c8e0 0%, #96d4e3 47%, #4fbfd8 55%, #57bfd6 79%, #8bceda 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, #71c8e0), color-stop(47%, #96d4e3), color-stop(55%, #4fbfd8), color-stop(79%, #57bfd6), color-stop(100%, #8bceda));
+   background: -webkit-linear-gradient(top, #71c8e0 0%, #96d4e3 47%, #4fbfd8 55%, #57bfd6 79%, #8bceda 100%);
+   background: -o-linear-gradient(top, #71c8e0 0%, #96d4e3 47%, #4fbfd8 55%, #57bfd6 79%, #8bceda 100%);
+   background: -ms-linear-gradient(top, #71c8e0 0%, #96d4e3 47%, #4fbfd8 55%, #57bfd6 79%, #8bceda 100%);
+   background: linear-gradient(to bottom, #71c8e0 0%, #96d4e3 47%, #4fbfd8 55%, #57bfd6 79%, #8bceda 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#71c8e0', endColorstr='#8bceda', GradientType=0);
+}
+
 body {
    flex-flow: column nowrap;
    min-width: 870px;
@@ -61,6 +72,14 @@ main {
    border-radius: 50%;
    margin: 4px;
    box-shadow: 6px 6px 4px 2px #993e inset
+}
+
+#spanPlayer {
+   flex: 0 0 100px;
+   width: 100px;
+   height: 100px;
+   padding: 4px;
+   border-radius: 50%;
 }
 
 .black {
