@@ -10,6 +10,8 @@ title {
 }
 
 body {
+   background: url(img/back.jpg) no-repeat fixed center;
+   background-size: cover;
    flex-flow: column nowrap;
    min-width: 870px;
 }
@@ -19,10 +21,15 @@ header {
    width: 100%;
    justify-content: center;
    align-items: center;
+
+   /* background: #ffffff86;
+   border: gray 2px solid;
+   box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;  */
 }
 
 header>* {
    margin: 20px;
+
 }
 
 button {
@@ -31,8 +38,8 @@ button {
 
 
 main {
-   background: pink;
-   outline: 4px outset #eaafbb;
+   background: rgb(201, 122, 70);
+   outline: 4px outset rgb(202, 152, 119);
    flex-flow: row nowrap;
    flex: 8 0 660px;
    width: 868px;
@@ -41,7 +48,7 @@ main {
 }
 
 .column {
-   background: gray;
+   background: rgb(221, 221, 221);
    padding: 4px;
    margin: 4px;
    flex-flow: column-reverse nowrap;
@@ -57,23 +64,31 @@ main {
 .red {
    flex: 0 0 100px;
    width: 100px;
-   padding: 4px;
-   border-radius: 50%;
    margin: 4px;
-   box-shadow: 6px 6px 4px 2px #993e inset
 }
 
-.black {
+/* .black {
    background: #000008;
    border: yellow 2px solid;
    box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
+} */
+
+.black {
+   background: url(img/black.png) center no-repeat;
+   background-size: 105px;
 }
 
 .red {
+   background: url(img/red.png) center no-repeat;
+   background-size: 103px;
+}
+
+
+/* .red {
    background: red;
    box-shadow: 0 0 4px 6px #faa3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
    border: yellow 2px solid;
-}
+} */
 
 #fimDeJogo {
    position: absolute;
@@ -84,7 +99,7 @@ main {
    font-size: 4rem;
    width: 100%;
    height: 100%;
-   background: gray;
+   background: rgb(182, 182, 182);
    color: white;
-   opacity: 0.8;
+   opacity: 0.7;
 }
