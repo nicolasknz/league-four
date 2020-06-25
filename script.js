@@ -1,237 +1,183 @@
-// criar tabuleiro 6 X 7
-// cada coluna é um array vazio
-// início automático
-// -- Eduardo
-const black = 'black' //1
-const red = 'red' //2
-let player = black
-
+const main = document.getElementById('main');
 
 function table() {
+   // criar tabuleiro coms 7 colunas
    for (let i = 1; i <= 7; i++) {
-
-      let main = document.getElementById('main')
-      const divColuna = document.createElement("div");
-      divColuna.className = "column"
-      divColuna.id = i
-
-      main.appendChild(divColuna)
+      const divColuna = document.createElement('div');
+      divColuna.className = 'column';
+      divColuna.id = i;
+      main.appendChild(divColuna);
    }
 }
-table()
+table();
 
+function play() {
 
-// Retorna ficha vermelha se receber 'red' ou preta se receber 'black 
-function createChip(nextPlayer) {
-   if (nextPlayer === 'red') {
-      console.log("red")
-      let newChip = document.createElement("div");
-      newChip.classList.add("red");
+   const black = 'black';
+   const red = 'red';
+   let player = black;
+   const jogador = document.getElementById('player');
+   jogador.textContent = player;
+
+   function switchPlayer() {
+      if (player === 'black') {
+         player = 'red'
+         jogador.textContent = player;
+      } else if (player === 'red') {
+         player = 'black'
+         jogador.textContent = player;
+      }
+   }
+
+   // Retorna ficha vermelha se receber 'red' ou preta se receber 'black'
+   function createChip(nextPlayer) {
+      let newChip = document.createElement('div');
+      if (nextPlayer === 'red') {
+         newChip.classList.add('red');
+      } else if (nextPlayer === 'black') {
+         newChip.classList.add('black');
+      }
       return newChip;
-   } else if (nextPlayer === 'black') {
-      let newChip = document.createElement("div");
-      newChip.classList.add("black");
-      return newChip;
    }
+
+   // Retorna a quantidade de chips numa determinada coluna
+   function columnChipCount(columnArrayelected) {
+      let chipsCount = columnArrayelected.getElementsByTagName('*').length;
+      return chipsCount;
+   }
+   // fim de jogo: div popup com mensagem
+   // RECEBE endGame
+   function telaFinal(result) {
+      // define variáveis
+      let finalMsg = '';
+      let msgColor = '';
+      switch (result) {
+         // de acordo com o resultado recebido de endGame(), seta mensagem e cor do texto
+         case 'black':
+            finalMsg = 'Player BLACK é o vencedor!!';
+            msgColor = 'black';
+            break;
+         case 'red':
+            finalMsg = 'Player RED é o vencedor!!';
+            msgColor = 'red';
+            break;
+         default:
+            finalMsg = 'Ninguém venceu - empate!!';
+            msgColor = 'green';
+            break;
+      }
+      // cria os elementos da página que irão apresentar o resultado do jogo
+      let target = document.getElementById('fimDeJogo');
+      let resultado = document.createElement('div');
+      resultado.style.color = msgColor;
+      let p = document.createElement('p');
+      let txt = document.createTextNode(finalMsg);
+      p.appendChild(txt);
+      resultado.appendChild(p);
+      target.appendChild(resultado);
+      // altera o display para tornar o resultado visível
+      target.style.display = 'flex';
+   }
+
+   const testaVitoria = function () {
+      let resultado = 'empate';
+      let columnArray = document.getElementsByClassName('column');
+
+      //condição vertical
+      for (let i = 0; i < 7; i++) {
+         let blackV = 0;
+         let redV = 0;
+         for (let j = 0; j < 6; j++) {
+            if (columnArray[i].children[j] !== undefined) {
+               if (columnArray[i].children[j].classList.contains('black')) {
+                  blackV++;
+                  redV = 0;
+               } else if (columnArray[i].children[j].classList.contains('red')) {
+                  redV++;
+                  blackV = 0;
+               }
+               if (blackV >= 4 || redV >= 4) {
+                  telaFinal(player);
+               }
+            }
+         }
+      }
+
+      //condição horizontal
+      for (let j = 0; j < 6; j++) {
+         let blackH = 0;
+         let redH = 0;
+         for (let i = 0; i < 7; i++) {
+            if (columnArray[i].children[j] !== undefined) {
+               if (columnArray[i].children[j].classList.contains('black')) {
+                  blackH++;
+                  redH = 0;
+               } else if (columnArray[i].children[j].classList.contains('red')) {
+                  redH++;
+                  blackH = 0;
+               }
+               if (blackH >= 4 || redH >= 4) {
+                  telafinal(player);
+               }
+            } else {
+               redH = 0;
+               blackH = 0;
+            }
+         }
+      }
+
+      //condição diagonal acima
+
+      for (let j = 0; j < 6; j++) {
+         let blackUp = 0;
+         let redUp = 0;
+
+         let k = j;
+         for (let i = 0; i < 7; i++, k++) {
+            if (columnArray[i].children[j] !== undefined) {
+               if (columnArray[i + 1].children[j + 1].classList.contains('black')) {
+                  blackUp++;
+                  redUp = 0;
+               } else if (columnArray[i + 1].children[j + 1].classList.contains('red')) {
+                  redUp++;
+                  blackUp = 0;
+               }
+               if (blackUp >= 4 || redUp >= 4) {
+                  telafinal(player);
+               }
+            } else {
+               redUp = 0;
+               blackUp = 0;
+            }
+         }
+      }
+
+
+      //    //condição diagonal abaixo
+      //    //condição empate
+   }
+
+   // Verifica  a coluna em que o mouse está ao clicar, se ainda houver espaço ira alterar a variavel hover para true, se não houver, altera para false
+   let hover;
+   let columnArray = document.getElementsByClassName('column');
+   for (item of columnArray) {
+      item.addEventListener('click', function () {
+         if (columnChipCount(this) < 6) {
+            this.appendChild(createChip(player));
+            testaVitoria();
+            switchPlayer();
+         } else {
+            return false;
+         }
+      });
+   }
+
 }
-const coluna1 = document.getElementById("1");
-const coluna2 = document.getElementById("2");
-const coluna3 = document.getElementById("3");
-const coluna4 = document.getElementById("4");
-const coluna5 = document.getElementById("5");
-const coluna6 = document.getElementById("6");
-const coluna7 = document.getElementById("7");
-
-// Retorna a quantidade de chips numa determinada coluna
-function columnChipCount (columnSelected) {
-   let chipsCount = columnSelected.getElementsByTagName('*').length;
-   return chipsCount;
-}
-// Verifica  a coluna em que o mouse esta em 'hover', se ainda ouver espaço ira alterar a variavel hover para true, se não houver, altera para false
-let hover;
-main.addEventListener('click', function(e){
-  if (e.target.id === '1') {
-     if (columnChipCount(coluna1) < 6){
-        hover = true;
-     } else {
-        hover = false;
-     }
-
-     if (hover == true){
-      coluna1.appendChild(createChip(player))
-  }
-}
-  if (e.target.id === '2') {
-   if (columnChipCount(coluna2) < 6){
-      hover = true;
-   } else {
-      hover = false;
-   }
-   if (hover == true){
-      coluna2.appendChild(createChip(player))
-   }
-}
-if (e.target.id === '3') {
-   if (columnChipCount(coluna3) < 6){
-      hover = true;
-   } else {
-      hover = false;   
-   }
-   if (hover == true){
-      coluna3.appendChild(createChip(player))
-   }
-}
-if (e.target.id === '4') {
-   if (columnChipCount(coluna4) < 6){
-      hover = true;
-   } else {
-      hover = false;   
-   }
-   if (hover == true){
-      coluna4.appendChild(createChip(player))
-   }
-}
-if (e.target.id === '5') {
-   if (columnChipCount(coluna5) < 6 ){
-      hover = true;
-   } else {
-      hover = false;   
-   }
-   if (hover == true){
-      coluna5.appendChild(createChip(player))
-   }
-}
-if (e.target.id === '6') {
-   if (columnChipCount(coluna6) < 6 ){
-      hover = true;
-   } else  {
-      hover = false;   
-   }
-   if (hover == true){
-      coluna6.appendChild(createChip(player))
-   }
-}
-if (e.target.id === '7') {
-   if (columnChipCount(coluna7) < 6 ){
-      hover = true;
-   } else {
-      hover = false;   
-   }
-   if (hover == true){
-      coluna7.appendChild(createChip(player))
-   }
-}
-})
-
-//Evento de click para adicionar ficha ao jogo.
-// coluna1.addEventListener('click', function(){
-//    if (hover == true){
-//    coluna1.appendChild(createChip(player))
-//    console.log('ok')
-//    }
-// })
-// clicar na coluna cria uma ficha (push)
-// hover na coluna - verifica se tem espaço disponível {roda }
-// -- Nicolas
-
-// criar player 1 e player 2
-// const black = 'black' //1
-// const red = 'red' //2
-
-// let player = black
-
-let placar = [
-   [],
-   [],
-   [],
-   [],
-   [],
-   [],
-   []
-]
-
-
-
-// rodada: selecionar coluna > insere uma ficha > altera jogador e grava array [1,0,1,1...]
-
-// const jogada = document.getElementsByClassName('column')
-// for(coluna of jogada){
-//    coluna.addEventListener('hover', function('Event'){
-//       //Inserir ficha na coluna
-//       if (coluna.lenght <= 6){
-//          createChip(alternar).appendChild("Variável da ficha")
-         
-//       if (alternar == player1){
-//          //Registrar no array Placar 1 p/ Black
-//       } else if (alternar == player2){
-//          //Registrar no array Placar 1 p/ Red
-//       }
-//          switchPlayer()
-//       }
-      
-//    })
-// }
-
-
-// -- Gustavo
-
-
-// condição de vitória: 4 em linha (h, v, d para cima, d para baixo)
-function endGame() {
-   // return "vitória: Player 1" / "vitória Player 2" / "Empate"
-}
-// h -> for(cada array){arrayX[y] === arrayX+1[y] arrX+2..}
-// fim do jogo: vitória player 1 - vitória player 2
-// empate (acabaram espaços e não atingiu condição de vitória)
-
-
-// fim de jogo: div popup com mensagem
-// RECEBE endGame
-function telaFinal(result) {
-   // define variáveis
-   let finalMsg = '';
-   let msgColor = '';
-   switch (result) {
-      // de acordo com o resultado recebido de endGame(), seta mensagem e cor do texto
-      case 'player1':
-         finalMsg = 'Player 1 é o vencedor!!';
-         msgColor = 'blue';
-         break;
-      case 'player2':
-         finalMsg = 'Player 2 é o vencedor!!';
-         msgColor = 'red';
-         break;
-      default:
-         finalMsg = 'Ninguém venceu - empate!!';
-         msgColor = 'green';
-         break;
-   }
-   // cria os elementos da página que irão apresentar o resultado do jogo
-   let target = document.getElementById('fimDeJogo');
-   let resultado = document.createElement('div');
-   resultado.style.color = msgColor;
-   let p = document.createElement('p');
-   let txt = document.createTextNode(finalMsg);
-   p.appendChild(txt);
-   resultado.appendChild(p);
-   target.appendChild(resultado);
-   // altera o display para tornar o resultado visível
-   target.style.display = 'flex';
-}
-
-// botão reiniciar
-// limpa tabuleiro = limpar os arrays e atualiza
-// -- Atauã
+play();
 
 const restart = document.getElementById('restart');
 restart.onclick = function () {
-
-   let cells = document.getElementsByClassName('cell');
-   for (cell of cells) {
-      cell.classList.remove('chip', 'blue', 'red');
-   }
-   // limpar arrays
-   // reinicia jogo do zero
+   main.innerHTML = '';
    table();
+   play();
 }
-
