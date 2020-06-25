@@ -130,7 +130,7 @@ const testaVitoria = function (player) {
    }
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
-   if (winner === 0 && countChips === 42) {
+   if (winner === 0 && countChips === 43) {
       telaFinal('blue');
    }
 }
