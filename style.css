@@ -14,23 +14,26 @@ body {
    background-size: cover;
    flex-flow: column nowrap;
    min-width: 870px;
+   
 }
 
 header {
-   flex: 1 0 120px;
-   width: 100%;
+   width: 905px;
+   height: 200px;
+   margin: auto;
+   padding-top: 20px;
    justify-content: center;
    align-items: center;
-
-   /* background: #ffffff86;
-   border: gray 2px solid;
-   box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;  */
+   background: rgb(129,154,173);
+   background: linear-gradient(0deg, rgba(129,154,173,1) 0%, rgba(255,251,251,0.3113620448179272) 75%, rgba(169,210,171,0.7791491596638656) 100%);
+   border: rgb(202, 152, 119) 4px outset;
+   
 }
 
 header>* {
    margin: 20px;
 
-}
+} 
 
 button {
    padding: 12px;
@@ -38,21 +41,22 @@ button {
 
 
 main {
-   background: rgb(201, 122, 70);
-   outline: 4px outset rgb(202, 152, 119);
+   background:rgba(255, 255, 255, 0.055);
+   outline: 4px outset rgb(202, 153, 120);
    flex-flow: row nowrap;
    flex: 8 0 660px;
-   width: 868px;
+   width: 896px;
    margin: auto;
    position: relative;
 }
 
 .column {
-   background: rgb(221, 221, 221);
+   background: rgba(221, 221, 221, 0.384);
    padding: 4px;
-   margin: 4px;
+   margin: 2px;
+   border: 4px rgb(202, 152, 119) inset;
    flex-flow: column-reverse nowrap;
-   flex: 0 0 116px;
+   flex: 0 0 124px;
    height: 660px;
 }
 
@@ -65,6 +69,15 @@ main {
    flex: 0 0 100px;
    width: 100px;
    margin: 4px;
+}
+
+#spanPlayer{
+   flex: 0 0 100px;
+   width: 100px;
+   height: 100px;
+   margin: 4px;
+   background-size: 105px;
+
 }
 
 /* .black {

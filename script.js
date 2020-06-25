@@ -148,7 +148,7 @@ function play() {
    const red = 'red';
    let player = black;
    const spanPlayer = document.getElementById('spanPlayer');
-   spanPlayer.textContent = player;
+   spanPlayer.classList.add(player);
 
    let columnArray = document.getElementsByClassName('column');
    for (item of columnArray) {
@@ -163,13 +163,16 @@ function play() {
             // alterna jogadores
             if (player === black) {
                player = red
+               spanPlayer.classList.remove("black");
+               spanPlayer.classList.add(player);
             } else if (player === red) {
                player = black
+               spanPlayer.classList.remove("red");
+               spanPlayer.classList.add(player);
             }
          } else {
             return false;
          }
-         spanPlayer.textContent = player;
       });
    }
 
