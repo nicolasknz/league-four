@@ -14,7 +14,6 @@ table();
 function telaFinal(player) {
 
    // cria os elementos da página que irão apresentar o resultado do jogo
-
    let resultado = document.createElement('div');
    resultado.id = 'fimDeJogo';
    resultado.style.backgroundColor = player;
@@ -56,7 +55,6 @@ const testaVitoria = function (player) {
          }
       }
    }
-
    //condição horizontal
    for (let j = 0; j < 6; j++) {
       let blackH = 0;
@@ -80,7 +78,6 @@ const testaVitoria = function (player) {
          }
       }
    }
-
    //condição diagonal acima
    for (let i = 0; i < 7; i++) { // em cada coluna
 
@@ -108,6 +105,7 @@ const testaVitoria = function (player) {
    }
    //    //condição diagonal abaixo
    for (let i = 0; i < 7; i++) { // em cada coluna
+
       for (let j = 0; j < 6; j++) { // em cada item de cada coluna
 
          let diagonal = []; // cria array vazio
@@ -126,11 +124,10 @@ const testaVitoria = function (player) {
             if (!!testDiagonal) {
                winner = 1;
                telaFinal(player);
-            }
+            };
          }
       }
    }
-
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
    if (winner === 0 && countChips === 42) {
@@ -171,6 +168,7 @@ function play() {
          }
       });
    }
+
 }
 play();
 
