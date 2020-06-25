@@ -112,7 +112,7 @@ const testaVitoria = function (player) {
       for (let j = 0; j < 6; j++) { // em cada item de cada coluna
 
          let diagonal = []; // cria array vazio
-         for (let turns = 0; turns < 5; turns++) { // repete 4 vezes
+         for (let turns = 0; turns < 4; turns++) { // repete 4 vezes
             if (columnArray[i + turns] !== undefined && columnArray[i + turns].children[j - turns] !== undefined) {
                let thisChip = columnArray[i + turns].children[j - turns]; // começa no zero
                if (thisChip !== undefined) { // se a ficha existe
@@ -134,7 +134,6 @@ const testaVitoria = function (player) {
 
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
-   console.log(countChips);
    if (winner === 0 && countChips === 42) {
       telaFinal('blue');
    }
