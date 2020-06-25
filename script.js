@@ -14,7 +14,6 @@ table();
 function telaFinal(player) {
 
    // cria os elementos da página que irão apresentar o resultado do jogo
-
    let resultado = document.createElement('div');
    resultado.id = 'fimDeJogo';
    resultado.style.backgroundColor = player;
@@ -56,7 +55,6 @@ const testaVitoria = function (player) {
          }
       }
    }
-
    //condição horizontal
    for (let j = 0; j < 6; j++) {
       let blackH = 0;
@@ -80,14 +78,13 @@ const testaVitoria = function (player) {
          }
       }
    }
-
    //condição diagonal acima
    for (let i = 0; i < 7; i++) { // em cada coluna
 
       for (let j = 0; j < 6; j++) { // em cada item de cada coluna
 
          let diagonal = []; // cria array vazio
-         for (let turns = 0; turns < 5; turns++) { // repete 4 vezes
+         for (let turns = 0; turns < 4; turns++) { // repete 4 vezes
             if (columnArray[i + turns] !== undefined && columnArray[i + turns].children[j + turns] !== undefined) {
                let thisChip = columnArray[i + turns].children[j + turns]; // começa no zero
                if (thisChip !== undefined) { // se a ficha existe
@@ -131,13 +128,9 @@ const testaVitoria = function (player) {
          }
       }
    }
-}
-  
-function play() {
-
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
-   if (winner === 0 && countChips === 42) {
+   if (winner === 0 && countChips === 43) {
       telaFinal('blue');
    }
 }
@@ -163,11 +156,11 @@ function play() {
             // alterna jogadores
             if (player === black) {
                player = red
-               spanPlayer.classList.remove("black");
+               spanPlayer.classList.remove('black');
                spanPlayer.classList.add(player);
             } else if (player === red) {
                player = black
-               spanPlayer.classList.remove("red");
+               spanPlayer.classList.remove('red');
                spanPlayer.classList.add(player);
             }
          } else {
