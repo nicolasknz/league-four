@@ -108,6 +108,7 @@ const testaVitoria = function (player) {
    }
    //    //condição diagonal abaixo
    for (let i = 0; i < 7; i++) { // em cada coluna
+
       for (let j = 0; j < 6; j++) { // em cada item de cada coluna
 
          let diagonal = []; // cria array vazio
@@ -126,10 +127,13 @@ const testaVitoria = function (player) {
             if (!!testDiagonal) {
                winner = 1;
                telaFinal(player);
-            }
+            };
          }
       }
    }
+}
+  
+function play() {
 
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
@@ -144,7 +148,7 @@ function play() {
    const red = 'red';
    let player = black;
    const spanPlayer = document.getElementById('spanPlayer');
-   spanPlayer.textContent = player;
+   spanPlayer.classList.add(player);
 
    let columnArray = document.getElementsByClassName('column');
    for (item of columnArray) {
@@ -159,15 +163,19 @@ function play() {
             // alterna jogadores
             if (player === black) {
                player = red
+               spanPlayer.classList.remove("black");
+               spanPlayer.classList.add(player);
             } else if (player === red) {
                player = black
+               spanPlayer.classList.remove("red");
+               spanPlayer.classList.add(player);
             }
          } else {
             return false;
          }
-         spanPlayer.textContent = player;
       });
    }
+
 }
 play();
 
