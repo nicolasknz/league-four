@@ -108,7 +108,6 @@ const testaVitoria = function (player) {
    }
    //    //condição diagonal abaixo
    for (let i = 0; i < 7; i++) { // em cada coluna
-
       for (let j = 0; j < 6; j++) { // em cada item de cada coluna
 
          let diagonal = []; // cria array vazio
@@ -132,6 +131,13 @@ const testaVitoria = function (player) {
       }
    }
   
+   //condição empate
+   let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
+   if (winner === 0 && countChips === 42) {
+      telaFinal('blue');
+   }
+}
+
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
    if (winner === 0 && countChips === 42) {
