@@ -11,29 +11,31 @@ function table() {
 }
 table();
 
-const testaVitoria = function () {
+function telaFinal(player) {
 
-   function telaFinal(winner) {
+   // cria os elementos da página que irão apresentar o resultado do jogo
 
-      // cria os elementos da página que irão apresentar o resultado do jogo
-      
-      let resultado = document.createElement('div');
-      resultado.id = 'fimDeJogo';
-      resultado.style.backgroundColor = winner;
+   let resultado = document.createElement('div');
+   resultado.id = 'fimDeJogo';
+   resultado.style.backgroundColor = player;
 
-      let finalMsg = 'Player ' + winner + ' é o vencedor!!';
-      let txt = document.createTextNode(finalMsg);
-
-      let p = document.createElement('p');
-      p.style.color = 'white';
-      
-      p.appendChild(txt);
-      resultado.appendChild(p);
-      main.appendChild(resultado);
+   let finalMsg = player.toUpperCase() + ' é o vencedor!!';
+   if (player === 'blue') {
+      finalMsg = 'EMPATE! Ninguém venceu!!'
    }
+   let txt = document.createTextNode(finalMsg);
+
+   let p = document.createElement('p');
+
+   p.appendChild(txt);
+   resultado.appendChild(p);
+   main.appendChild(resultado);
+}
+
+const testaVitoria = function (player) {
 
    let columnArray = document.getElementsByClassName('column');
-
+   let winner = 0;
    //condição vertical
    for (let i = 0; i < 7; i++) {
       let blackV = 0;
@@ -48,6 +50,7 @@ const testaVitoria = function () {
                blackV = 0;
             }
             if (blackV >= 4 || redV >= 4) {
+               winner = 1;
                telaFinal(player);
             }
          }
@@ -68,6 +71,7 @@ const testaVitoria = function () {
                blackH = 0;
             }
             if (blackH >= 4 || redH >= 4) {
+               winner = 1;
                telaFinal(player);
             }
          } else {
@@ -78,23 +82,62 @@ const testaVitoria = function () {
    }
 
    //condição diagonal acima
-   // for (let i = 0; i < 7; i++) {
+   for (let i = 0; i < 7; i++) { // em cada coluna
 
-   //    for (let j = 0; j < 6; j++) {
+      for (let j = 0; j < 6; j++) { // em cada item de cada coluna
 
-   //       let diagonal = []; // cria array
-   //       let thisChip = columnArray[i].children[j]; // pega cada ficha
-   //       if (thisChip !== undefined) { // se a ficha existe
-   //          let chipClass = thisChip.className; // pega classe da ficha
-   //          if (diagonal[diagonal.length] === 0 || diagonal[diagonal.length] === chipClass) { // se for o primeiro do array ou se o anterior for igual
-   //             diagonal.push(chipClass); // insere no array
-   //             console.log(diagonal);
-   //             thisChip = columnArray[i + 1].children[j + 1];
-   //             console.log(thisChip);
-   //          }
-   //       }
+         let diagonal = []; // cria array vazio
+         for (let turns = 0; turns < 5; turns++) { // repete 4 vezes
+            if (columnArray[i + turns] !== undefined && columnArray[i + turns].children[j + turns] !== undefined) {
+               let thisChip = columnArray[i + turns].children[j + turns]; // começa no zero
+               if (thisChip !== undefined) { // se a ficha existe
+                  let chipClass = thisChip.className; // pega classe da ficha
+                  diagonal.push(chipClass); // insere no array
+               }
+            }
+         }
+         if (diagonal.length >= 4) {
+            let testDiagonal = diagonal.every((val) => val === player);
+            // telaFinal(player);
+            if (!!testDiagonal) {
+               winner = 1;
+               telaFinal(player);
+            };
+         }
+      }
+   }
    //    //condição diagonal abaixo
-   //    //condição empate
+   for (let i = 0; i < 7; i++) { // em cada coluna
+
+      for (let j = 0; j < 6; j++) { // em cada item de cada coluna
+
+         let diagonal = []; // cria array vazio
+         for (let turns = 0; turns < 5; turns++) { // repete 4 vezes
+            if (columnArray[i + turns] !== undefined && columnArray[i + turns].children[j - turns] !== undefined) {
+               let thisChip = columnArray[i + turns].children[j - turns]; // começa no zero
+               if (thisChip !== undefined) { // se a ficha existe
+                  let chipClass = thisChip.className; // pega classe da ficha
+                  diagonal.push(chipClass); // insere no array
+               }
+            }
+         }
+         if (diagonal.length >= 4) {
+            let testDiagonal = diagonal.every((val) => val === player);
+            // telaFinal(player);
+            if (!!testDiagonal) {
+               winner = 1;
+               telaFinal(player);
+            };
+         }
+      }
+   }
+
+   //condição empate
+   let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
+   console.log(countChips);
+   if (winner === 0 && countChips === 42) {
+      telaFinal('blue');
+   }
 }
 
 function play() {
@@ -102,8 +145,8 @@ function play() {
    const black = 'black';
    const red = 'red';
    let player = black;
-   const jogador = document.getElementById('player');
-   jogador.textContent = player;
+   const spanPlayer = document.getElementById('spanPlayer');
+   spanPlayer.textContent = player;
 
    let columnArray = document.getElementsByClassName('column');
    for (item of columnArray) {
@@ -113,7 +156,7 @@ function play() {
             newChip.classList.add(player);
             this.appendChild(newChip);
 
-            testaVitoria();
+            testaVitoria(player);
 
             // alterna jogadores
             if (player === black) {
@@ -124,7 +167,7 @@ function play() {
          } else {
             return false;
          }
-         jogador.textContent = player;
+         spanPlayer.textContent = player;
       });
    }
 }
