@@ -77,27 +77,6 @@ const testaVitoria = function () {
       }
    }
 
-   //condição diagonal acima
-   // for (let i = 0; i < 7; i++) {
-
-   //    for (let j = 0; j < 6; j++) {
-
-   //       let diagonal = []; // cria array
-   //       let thisChip = columnArray[i].children[j]; // pega cada ficha
-   //       if (thisChip !== undefined) { // se a ficha existe
-   //          let chipClass = thisChip.className; // pega classe da ficha
-   //          if (diagonal[diagonal.length] === 0 || diagonal[diagonal.length] === chipClass) { // se for o primeiro do array ou se o anterior for igual
-   //             diagonal.push(chipClass); // insere no array
-   //             console.log(diagonal);
-   //             thisChip = columnArray[i + 1].children[j + 1];
-   //             console.log(thisChip);
-   //          }
-   //       }
-   //    //condição diagonal abaixo
-   //    //condição empate
-
-
-
    // Diagonais esquerda pra direita
     // Diagonal principal
     let blackD = 0;
@@ -235,7 +214,6 @@ let redD1 = 0;
    }
 }
   
-
 function play() {
 
    const black = 'black';
