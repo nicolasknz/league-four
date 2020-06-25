@@ -40,20 +40,6 @@ main {
    position: relative;
 }
 
-#fimDeJogo {
-   position: absolute;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   display: none;
-   background: gray;
-   padding: 25%;
-}
-
-#innersection {
-   margin: auto;
-}
-
 .column {
    background: gray;
    padding: 4px;
@@ -92,13 +78,13 @@ main {
 #fimDeJogo {
    position: absolute;
    top: 0;
+   flex: 1 0 100%;
+   align-items: center;
+   justify-content: center;
+   font-size: 4rem;
    width: 100%;
    height: 100%;
-   display: none;
    background: gray;
-   padding: 25%;
-}
-
-#innersection {
-   margin: auto;
+   color: white;
+   opacity: 0.8;
 }
