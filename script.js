@@ -126,17 +126,10 @@ const testaVitoria = function (player) {
             if (!!testDiagonal) {
                winner = 1;
                telaFinal(player);
-            };
+            }
          }
       }
    }
-  
-   //condição empate
-   let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
-   if (winner === 0 && countChips === 42) {
-      telaFinal('blue');
-   }
-}
 
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
