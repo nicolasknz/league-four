@@ -131,20 +131,7 @@ const testaVitoria = function (player) {
          }
       }
    }
-   } else if (columnArray[i].children[j] === undefined) {
-      redDD3 = 0;
-      blackDD3 = 0 ;
-  }
-   if (blackDD3 >= 4 || redDD3 >= 4) {
-      alert(player + " venceu");
-    } 
-    console.log(i + " " + j + " " + blackDD3)
-   j++
-   }
-}
   
-function play() {
-
    //condição empate
    let countChips = document.getElementsByClassName('black').length + document.getElementsByClassName('red').length;
    if (winner === 0 && countChips === 42) {
