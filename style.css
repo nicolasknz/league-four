@@ -21,24 +21,36 @@ header {
    width: 905px;
    height: 200px;
    margin: auto;
-   padding-top: 20px;
-   justify-content: center;
+   justify-content: space-around;
    align-items: center;
-   background: rgb(129,154,173);
-   background: linear-gradient(0deg, rgba(129,154,173,1) 0%, rgba(255,251,251,0.3113620448179272) 75%, rgba(169,210,171,0.7791491596638656) 100%);
-   border: rgb(202, 152, 119) 4px outset;
-   
+   outline: 4px inset rgba(95, 95, 95, 0.575);
+   background: rgb(0,0,0);
+   background: linear-gradient(0deg, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0.77) 80%);
 }
 
-header>* {
-   margin: 20px;
+/* next player */
+#nxt {
+   font-family: 'Balsamiq Sans', cursive;
+   padding: 0px 20px;
+   margin: 10px;
+   font-size: 45px;
+   justify-content: space-around;
+   align-items: center;
+   color: #000;
+}
 
-} 
-
-button {
+#restart {
    padding: 12px;
 }
 
+#spanPlayer{
+   flex: 0 0 150px;
+   width: 150px;
+   height: 150px;
+   margin: 4px;
+   background-size: 135px;
+
+}
 
 main {
    background:rgba(255, 255, 255, 0.055);
@@ -71,20 +83,7 @@ main {
    margin: 4px;
 }
 
-#spanPlayer{
-   flex: 0 0 100px;
-   width: 100px;
-   height: 100px;
-   margin: 4px;
-   background-size: 105px;
 
-}
-
-/* .black {
-   background: #000008;
-   border: yellow 2px solid;
-   box-shadow: 0 0 4px 6px #aaf3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
-} */
 
 .black {
    background: url(img/black.png) center no-repeat;
@@ -95,13 +94,6 @@ main {
    background: url(img/red.png) center no-repeat;
    background-size: 103px;
 }
-
-
-/* .red {
-   background: red;
-   box-shadow: 0 0 4px 6px #faa3 inset, 4px 4px 8px 2px #ccc5 inset, -4px -4px 8px 2px #2328 inset;
-   border: yellow 2px solid;
-} */
 
 #fimDeJogo {
    position: absolute;
