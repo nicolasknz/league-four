@@ -12,7 +12,11 @@ function table() {
 table();
 
 function telaFinal(player) {
-
+   // limpa tela final (caso gere mais que uma)
+   let tf = document.getElementById('fimDeJogo');
+   if (!!tf) {
+      tf.remove();
+   }
    // cria os elementos da página que irão apresentar o resultado do jogo
    let resultado = document.createElement('div');
    resultado.id = 'fimDeJogo';
